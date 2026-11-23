@@ -1,0 +1,20 @@
+{
+  "maxTailCalls": 3,
+  "entry": "p0",
+  "interfaces": ["eth0"],
+  "programs": [
+    { "id": "p0", "returnCode": "XDP_DROP" },
+    { "id": "p1", "returnCode": "XDP_TX" },
+    { "id": "p2", "returnCode": "XDP_REDIRECT", "interface": "eth0" }
+  ],
+  "mapUpdates": [
+    { "map": "jump_map", "key": 0, "targetProgram": "p1" },
+    { "map": "jump_map", "key": 1, "targetProgram": "p1" },
+    { "map": "jump_map", "key": 2, "targetProgram": "p2" }
+  ],
+  "edges": [
+    { "from": "p0", "map": "jump_map", "key": 0 },
+    { "from": "p1", "map": "jump_map", "key": 1 },
+    { "from": "p1", "map": "jump_map", "key": 2 }
+  ]
+}

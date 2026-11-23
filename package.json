@@ -1,0 +1,13 @@
+{
+  "name": "ebpf-xdp-tail-call-budget-validator",
+  "version": "1.0.0",
+  "description": "纯静态 XDP tail call 预算与程序图验证器，不加载真实 eBPF",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}
